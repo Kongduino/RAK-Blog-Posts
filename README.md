@@ -1,6 +1,6 @@
 # Blog Posts I wrote for RAKwireless
 
-One of my job duties is to write content for RAK, which I am happy to. I am archiving my writings here, in their original, submission form.
+One of my job duties is to write content for RAK, which I am happy to do. I am archiving my writings here, in their original, submission form.
 
 * [BastWANTutorial](BastWANTutorial/BastWANTutorial.md)
 * [RAK12002](RAK12002/RAK12002.md)
