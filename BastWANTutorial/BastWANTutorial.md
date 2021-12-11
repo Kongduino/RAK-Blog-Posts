@@ -111,38 +111,43 @@ void loop() {
 ```c
 #include <SPI.h>
 #include <LoRa.h>
+
+#define RFM_TCXO (40u)
+
 int counter = 0;
 
 void setup() {
-    Serial.begin(9600);
-    Serial.println("LoRa Sender");
-    pinMode(RFM_TCXO, OUTPUT);
-    pinMode(RFM_SWITCH, OUTPUT);
-    pinMode(LED_BUILTIN, OUTPUT);
-    LoRa.setPins(SS, RFM_RST, RFM_DIO0);
-    if (!LoRa.begin(915E6)) {
-        Serial.println("Starting LoRa failed!");
+  Serial.begin(9600);
+  delay(2000); // BastWAN is slow to set up the Serial
+  Serial.println("\nLoRa Sender");
+  pinMode(RFM_TCXO, OUTPUT);
+  pinMode(RFM_SWITCH, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+  LoRa.setPins(SS, RFM_RST, RFM_DIO0);
+  if (!LoRa.begin(915E6)) {
+    Serial.println("Starting LoRa failed!");
     while (1);
-    }
+  }
 }
 
 void loop() {
-    Serial.print("Sending packet: ");
-    Serial.println(counter);
-    digitalWrite(LED_BUILTIN, 1);
-    // send packet
-    LoRa.beginPacket();
-    digitalWrite(RFM_SWITCH, 0);
-    LoRa.print("hello ");
-    LoRa.print(counter);
-    LoRa.endPacket();
-    counter++;
-    delay(500);
-    digitalWrite(LED_BUILTIN, 0);
-    delay(500);
+  Serial.print("Sending packet: ");
+  Serial.println(counter);
+  digitalWrite(LED_BUILTIN, 1);
+  // send packet
+  LoRa.beginPacket();
+  digitalWrite(RFM_SWITCH, 0);
+  LoRa.print("hello ");
+  LoRa.print(counter);
+  LoRa.endPacket();
+  counter++;
+  delay(500);
+  digitalWrite(LED_BUILTIN, 0);
+  delay(500);
 }
 ```
-In both examples the variables *RFM_SWITCH, RFM_RST, RFM_DIO0, * and *SS* are declared in the board definitions, so you don't need to use the pin numbers.
+
+In both examples the variables *RFM_SWITCH, RFM_RST, RFM_DIO0, * and *SS* are declared in the board definitions, so you don't need to use the pin numbers. But `RFM_TCXO` isn't, for some reason, so I had to add it. Thanks to [Titi](https://github.com/titimoby) for catching this.
 
 #### Hello World in LoRaWAN:
 
