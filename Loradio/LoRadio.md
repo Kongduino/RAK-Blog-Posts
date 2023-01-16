@@ -13,14 +13,14 @@ The most important part of course is to be able to receive the radio channel, an
 
 ### MCU
 
-I decided to go for my favorite, the RAK4631 (nRF52849 + SX1262), as I wanted to have the option to manage the board via BLE, and get serial output too. So I can configure the board, and see what happens, via USB, and later on via BLE. I put it on [a RAK19007](https://store.rakwireless.com/products/rak19007-wisblock-base-board-2nd-gen), the new regular base board with USB-C.
+I decided to go for my favorite, the RAK4631 (nRF52849 + SX1262), as I wanted to have the option to manage the board via BLE, and get serial output there too. So I can configure the board, and see what happens, via USB, and later on via BLE. I put it on [a RAK19007](https://store.rakwireless.com/products/rak19007-wisblock-base-board-2nd-gen), the new regular base board with USB-C.
 
 ![RAK19007](RAK19007.png)
 ![RAK4631-H](RAK4631-H.png)
 
 ### GPS
 
-RAK has two GNSS modules, the [RAK1910](https://store.rakwireless.com/products/rak1910-max-7q-gnss-location-sensor) (u-Blox MAX-7Q), and the [RAK12500](https://store.rakwireless.com/products/wisblock-gnss-location-module-rak12500) (u-blox ZOE-M8Q). The latter is **much** better, and can be piloted via Serial1 and I2C. But I had on hand the former, and I have custom code for it I wrote for another project – NDA'ed so can't say :-)
+RAK has two GNSS modules, the [RAK1910](https://store.rakwireless.com/products/rak1910-max-7q-gnss-location-sensor) (u-Blox MAX-7Q), and the [RAK12500](https://store.rakwireless.com/products/wisblock-gnss-location-module-rak12500) (u-blox ZOE-M8Q). The latter is **much** better, and can be driven via Serial1 and I2C. But I had on hand the former, and I have custom code for it, which I wrote for another project – NDA'ed so can't say :-)
 
 ![RAK1910](RAK1910.png)
 
@@ -30,7 +30,7 @@ Of course it is easier to see what's happening if there's some kind of screen. T
 
 ## The Basics
 
-With these elements in hand, I had a basic system working very quickly – I have most of the code in various pieces here and there, except for the radio – which was a new one for me. But there were a couple of libraries around, one by Sparkfun linked to [on their hookup guide](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide), and another by [Github user mkhthir](https://github.com/mkhuthir/Si4703). The two libraries had some parts in common, and some that were not. Also, the Sparkfun library had the bit order of the register backwards (not their fault, they followed the official documentation). So after a little bit of grumbling and fiddling around I managed to produce a library that worked well.
+With these elements in hand, I had a basic system working very quickly – I have most of the code in various pieces here and there, except for the radio – which was a new one for me. But there were a couple of libraries around, one by Sparkfun, linked to [on their hookup guide](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide), and another by [Github user mkhthir](https://github.com/mkhuthir/Si4703). The two libraries had some parts in common, and some that were not. Also, the Sparkfun library had the bit order of the register backwards (not their fault, they followed the official documentation). So after a little bit of grumbling and fiddling around, I managed to produce a library that worked well.
 
 I added my skeletton `Commands.h` command system, which enables to set up a Serial command system quickly, easily extendable. I could select a channel, seek up and down, adjust volume, do an RDS scan (few radios in HK seem to transmit anything). And send packets via my gateway to TTN. All good.
 
