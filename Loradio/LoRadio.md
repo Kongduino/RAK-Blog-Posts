@@ -6,7 +6,7 @@ I am working on a community project based in Australia that has been so far a bl
 
 ### FM Radio
 
-The most important part of course is to be able to receive the radio channel, and get information about it. SiliconLabs has a great FM radio receiver, the Si4703, and it's available as a ready-to-use module from a couple of companies, namely Sparkfun and Mikroe. I am a big fan of Mikroe product range called the Clicks – maybe less so of the rest – and since there's a [Click, QWIIC and Grove adapter](https://store.rakwireless.com/products/rak1920-sensor-adapter-module) in the Wisblock lineup, so I went for [this module](https://www.mikroe.com/fm-click). The advantage of this adapter is that should we need to add more modules, I have a Qwiic and 2 Grove ports available.
+The most important part of course is to be able to receive the radio channel, and get information about it. SiliconLabs has a great FM radio receiver, the Si4703, and it's available as a ready-to-use module from a couple of companies, namely Sparkfun and Mikroe. I am a big fan of Mikroe product range called the Clicks – maybe less so of the rest – and since there's a [Click, QWIIC and Grove adapter](https://store.rakwireless.com/products/rak1920-sensor-adapter-module) in the Wisblock lineup, I went for [this module](https://www.mikroe.com/fm-click). The advantage of this adapter is that should we need to add more modules, I have a Qwiic and 2 Grove ports available.
 
 ![FM Click](FM_Click.jpg)
 ![RAK1920](RAK1920.png)
