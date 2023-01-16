@@ -1,6 +1,6 @@
 # Radio Mapping with LoRaWAN
 
-I am working on a community project based in Australia that has been so far a blast. So I thought I'd share the basics of the project. The main idea is that there's a community radio station somewhere in the boondocks, and the locals don't always get good reception. So come of the guys thought ot would be cool to build a mapper for this radio station. And since this area has great LoRaWAN coverage – they have covered the region with gateways – the logical choice was to make a LoRaWAN radio mapper.
+I am working on a community project based in Australia that has been so far a blast. So I thought I'd share the basics of the project. The main idea is that there's a community radio station somewhere in the boondocks, and the locals don't always get good reception. So some of the guys thought it would be cool to build a mapper for this radio station. And since this area has great LoRaWAN coverage – they have covered the region with gateways – the logical choice was to make a LoRaWAN radio mapper.
 
 ## The Original BOM
 
