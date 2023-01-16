@@ -48,7 +48,9 @@ The first test showed a problem, not with the code or the device itself, but wit
 
 ### SD Card
 
-First, I decided to add [an SD card module](https://store.rakwireless.com/products/sd-card-module-rak15002), and save everything locally. I had other options, like an EEPROM, or a NOR Flash, but having a removable SD card makes it easier to transfer the data, and allows me to add customs settings to the SD card, which can be read at boot time.
+First, I decided to add [an SD card module](https://store.rakwireless.com/products/sd-card-module-rak15002), and save everything locally. I had other options, like an EEPROM, or a NOR Flash, but having a removable SD card makes it easier to transfer the data, and allows me to add customs settings to the SD card, which can be read at boot time. I made a very basic GUI application with Xojo, enabling me to set up as many as 10 channels, and pick a favorite, which will be dialed to on boot.
+
+![Loradio_Setup](Loradio_Setup.png)
 
 ![SD_Card](SD_Card.png)
 
