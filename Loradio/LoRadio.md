@@ -84,14 +84,24 @@ So what happens on the other side of this setup? When the packet is sent, it is,
 
 The data can also serve as a LoRaWAN mapper, since the LoRaWAN RSSI / SNR data is also sent by the MQTT broker, and extracted by the Python script. It would be very easy to produce a second file with this data, and produce a separate map for this information.
 
-![Heat Map](HeatMap.jpg)
+![Heat Map](HeatMap.png)
 *Radio RSSI displayed as a heat map*
 
+### The code
 
+![source_code](source_code.png)
 
+I am still making changes to the LoRadio code, but I will put it on Github when it's ready. In between here is the code that produces, and displays heat maps. Look into the [demoHeat folder].
 
+* `heat.html`: the main file. You need to edit it and put your MapQuest API key.
+* `leaflet-heat.js`: the JS code that creates the heat map
+* `samples.js`: the data points. This file is re-created every time by the 2 following scripts.
+* `demoHeat_rect.py`: produces a random data set of points within a rectangle.
+* `demoHeat_circle.py`: produces a random data set of points within an oval.
 
-
-
+```bash
+python3 demoHeat_circle.py 22.25 114.2
+```
+This command for instance will produce the heat map shown above. You can play around with the parameters (distance from the center, number of points, etc) to see different results. So far it seems to work well.
 
 

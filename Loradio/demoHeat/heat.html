@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MapQuest Leaflet plugin with HeatMap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <script src="./samples.js"></script>
+    <script src="./leaflet-heat.js"></script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.s/mq-map.js?key=APIKEY"></script>
+    <script type="text/javascript">
+      // https://developer.mapquest.com/documentation/mapquest-js/v1.3/examples/showing-clusters-as-a-heat-map/
+      // https://github.com/MapQuest/MQSampleCode/blob/master/HeatMap.html
+      "use strict";
+      var L, MQ, map, a;
+      window.onload = function() {
+        var heatmap = new L.featureGroup();
+        map = L.map('map',{
+          center: [px, py],
+          zoom: 15
+        });
+        map.addLayer(MQ.mapLayer());
+        L.heatLayer(points, {radius: 10, blur: 3}).addTo(map);
+      };
+    </script>
+    <style>
+      #map {
+        width: 1000px;
+        height: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>
