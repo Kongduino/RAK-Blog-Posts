@@ -91,7 +91,7 @@ The data can also serve as a LoRaWAN mapper, since the LoRaWAN RSSI / SNR data i
 
 ![source_code](source_code.png)
 
-I am still making changes to the LoRadio code, but there's a preliminary version [here](./mqtt/). There is also the code that creates, and displays, heat maps. Look into the [demoHeat folder](./demoHeat/).
+I am still making changes to the LoRadio code, but there's a preliminary version of the receiver code [here](./mqtt/). There is also the code that creates, and displays, heat maps. Look into the [demoHeat folder](./demoHeat/).
 
 * `heat.html`: the main file. You need to edit it and put your MapQuest API key.
 * `leaflet-heat.js`: the JS code that creates the heat map
