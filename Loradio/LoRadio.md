@@ -91,7 +91,7 @@ The data can also serve as a LoRaWAN mapper, since the LoRaWAN RSSI / SNR data i
 
 ![source_code](source_code.png)
 
-I am still making changes to the LoRadio code, but I will put it on Github when it's ready. In between here is the code that produces, and displays heat maps. Look into the [demoHeat folder](./demoHeat/).
+I am still making changes to the LoRadio code, but there's a preliminary version [here](./mqtt/). There is also the code that creates, and displays, heat maps. Look into the [demoHeat folder](./demoHeat/).
 
 * `heat.html`: the main file. You need to edit it and put your MapQuest API key.
 * `leaflet-heat.js`: the JS code that creates the heat map
@@ -103,5 +103,4 @@ I am still making changes to the LoRadio code, but I will put it on Github when 
 python3 demoHeat_circle.py 22.25 114.2
 ```
 This command for instance will produce the heat map shown above. You can play around with the parameters (distance from the center, number of points, etc) to see different results. So far it seems to work well.
-
 
