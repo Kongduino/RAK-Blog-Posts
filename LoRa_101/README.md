@@ -6,16 +6,16 @@ LoRa est la couche physique de transport des données par une sorte de radio à 
 
 LoRa est un protocole patenté, et Semtech, le propriétaire, est féroce sur le sujet, et le protocole est quasi secret. Donc peu documenté. Mais le principe est : le message est précédé d'un préambule de X octets (8 en général mais paramétrable), les "bits" radio (chirps: Compressed High-Intensity Radar Pulse) sont "étalés" (comme la confiture sur une tartine) sur un certain spectre, paramétrable, et une bande passante, aussi paramétrable. Ces 2 facteurs, ainsi que d'autres, détermineront la vitesse de transmission, sa fiabilité et sa portée. Plus le spectre est élevé (max SF 12 : 2^12, 4096 chirps par symbole envoyé), plus il y a de chirps par octet transmis, et plus la transmission est fiable et peut aller loin (et plus elle est lente). A l'opposé, plus la bande passante est restreinte, moins il y a de chances d'interférences, et plus là aussi la transmission est fiable et peut aller loin (et se ralentit aussi : plus le tuyau est mince, moins y'a de bits qui sont envoyés par seconde...). SF11 et SF12 sont interdits aux Etats-Unis, alors que par exemple la puissance de transmission est légale jusqu'à 30 dbm. Donc vérifier dans chaque pays ce qui est légal quand on fait du LoRa – pour LoRaWAN les librairies des gateways et end-devices le font automatiquement.
 
-|Spreading Factor|Speed|
-|---|---|
-|12|293 bps|
-|11|537 bps|
-|10|977 bps|
-|9|1.8 kbps|
-|8|3.1 kbps|
-|7|5.5 kbps|
+Figure 1 : vitesse de transmission en fonction de SF / BW
+|SF|BW 500|BW 250|BW 125|
+|---|---|---|---|
+|12|1,172 bps|586 bps|293 bps|
+|11|2,148 bps|1,074 bps|537 bps|
+|10|3,906 bps|1,953 bps|977 bps|
+|9|7,031 bps|3,516 bps|1.8 kbps|
+|8|12,500 bps|6,250 bps|3.1 kbps|
+|7|21,875 bps|10,938 bps|5.5 kbps|
 
-*Pour une bande passante de 125 KHz*
 
 Les bandes passantes possibles sont, pour LoRa, 500, 250, 125, 62.5, 41.7, 31.25, 20.8, 15.6, 10.4, et 7.8 KHz, et en LoRaWAN, plus restrictif, 125, 250 et 500 kHz. Ce qui fait que beaucoup de développeurs limitent leur code à 125, 250, 500 même pour LoRa (et même chez Semtech...), alors qu'il n'y a aucune raison. Juste de l'ignorance et de la paresse... En fait, LoRaWAN est extrêmement codifié, en termes de réglages, et temps de transmission, pour coller aux lois locales, et assurer un "fair use", alors que LoRa même, ben euh, non. C'est pas par hasard que j'ai pris #LoRaBandit comme tag...
 
