@@ -15,6 +15,8 @@ LoRa est un protocole patenté, et Semtech, le propriétaire, est féroce sur le
 |8|3.1 kbps|
 |7|5.5 kbps|
 
+*Pour une bande passante de 125 KHz*
+
 Les bandes passantes possibles sont, pour LoRa, 500, 250, 125, 62.5, 41.7, 31.25, 20.8, 15.6, 10.4, et 7.8 KHz, et en LoRaWAN, plus restrictif, 125, 250 et 500 kHz. Ce qui fait que beaucoup de développeurs limitent leur code à 125, 250, 500 même pour LoRa (et même chez Semtech...), alors qu'il n'y a aucune raison. Juste de l'ignorance et de la paresse... En fait, LoRaWAN est extrêmement codifié, en termes de réglages, et temps de transmission, pour coller aux lois locales, et assurer un "fair use", alors que LoRa même, ben euh, non. C'est pas par hasard que j'ai pris #LoRaBandit comme tag...
 
 LoRa, c'est la CB de l'IoT, LoRaWAN les radio-amateurs licenciés, en quelque sorte. Y compris dans la structure, où les gateways LoRaWAN servent de relais pour tout le monde (sauf cas spéciaux, les réseaux privatifs). Avec LoRa tout le monde peut t'entendre – sur des réglages identiques – et te perturber tes comms, alors que pour LoRaWAN, avec 8 ou 16 canaux, chiffrage AES, etc, les messages passent chiffrés, proprement, et arrivent au destinataire seulement. Du coup LoRaWAN requiert plus de matos – il faut une ou plusieurs gateways – mais si la région est déjà couverte, l'investissement n'est pas nécessaire : on peut surfer sur les gateways existantes.
