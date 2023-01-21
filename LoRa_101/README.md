@@ -25,4 +25,5 @@ LoRaWAN requiert ceci dit plus de travail sur le traitement des données – une
 
 L'avantage clair de LoRa dans ce cas est que les données ne font pas le tour de la terre pour arriver à destination. Elles ne quittent jamais l'appareil qui les a reçues, sauf si le traitement le demande. J'ai mon mini jardin sur le toit, un capteur sol en LoRaWAN, les données font capteur --> ma gateway --> eu1 TTN --> mon serveur ici. Round trip HK-Europe. Un autre capteur est en LoRa : capteur --> ordinateur, point barre.
 
-De plus, la liberté 
+De plus, la liberté de réglages de LoRa permet d'atteindre des performances souvent meilleures que LoRaWAN : j'ai déjà mentionné l'impossibilité d'utiliser SF11 et SF12 en LoRaWAN aux Etats-Unis, alors que ces réglages apportent des performances supérieures, mais aussi la possibilité de réduire la bande passante en dessous de 125 KHz. Evidemment, ces réglages la vitesse de transmission, et un petit paquet d'une dizaine d'octets peut facilement prendre 2 à 3 secondes. Voir [LoRa Calc](https://kongduino.github.io/Lora-Calculations/) pour tester.
+
