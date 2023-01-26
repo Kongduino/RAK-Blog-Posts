@@ -19,13 +19,36 @@ Figure 1 : vitesse de transmission en fonction de SF / BW
 
 Les bandes passantes possibles sont, pour LoRa, 500, 250, 125, 62.5, 41.7, 31.25, 20.8, 15.6, 10.4, et 7.8 KHz, et en LoRaWAN, plus restrictif, 125, 250 et 500 kHz. Ce qui fait que beaucoup de développeurs limitent leur code à 125, 250, 500 même pour LoRa (et même chez Semtech...), alors qu'il n'y a aucune raison. Juste de l'ignorance et de la paresse... En fait, LoRaWAN est extrêmement codifié, en termes de réglages, et temps de transmission, pour coller aux lois locales, et assurer un "fair use", alors que LoRa même, ben euh, non. C'est pas par hasard que j'ai pris [#LoRaBandit](https://twitter.com/search?q=%23LoRaBandit&src=typed_query&f=live) comme tag...
 
+![SF7_BW125](SF7_BW125.png)
+*SF 7, BW 125 KHz*
+
+![SF7_BW62.5](SF7_BW62.5.png)
+*SF 7, BW 62.5 KHz*
+
+![SF7_BW20.8](SF7_BW20.8.png)
+*SF 7, BW 20.8 KHz*
+
+![SF12_BW125](SF12_BW125.png)
+*SF 12, BW 125 KHz*
+
+![SF12_BW62.5](SF12_BW62.5.png)
+*SF 12, BW 62.5 KHz*
+
+![SF12_BW20.8](SF12_BW20.8.png)
+*SF 12, BW 20.8 KHz*
+
+
+
 LoRa, c'est la CB de l'IoT, LoRaWAN les radio-amateurs licenciés, en quelque sorte. Y compris dans la structure, où les gateways LoRaWAN servent de relais pour tout le monde (sauf cas spéciaux, les réseaux privatifs). Avec LoRa tout le monde peut t'entendre – sur des réglages identiques – et te perturber tes comms, alors que pour LoRaWAN, avec 8 ou 16 canaux, chiffrage AES, etc, les messages passent chiffrés, proprement, et arrivent au destinataire seulement. Du coup LoRaWAN requiert plus de matos – il faut une ou plusieurs gateways – mais si la région est déjà couverte, l'investissement n'est pas nécessaire : on peut surfer sur les gateways existantes.
 
 LoRa requiert moins de matériel – en tout cas au début, mais tout le travail reste à faire en terme de transmission, chiffrage, adressage, etc. Et les produits LoRa de base ne sont pas toujours très bons, alors que les gateways elles sont faites pour être performantes. Donc il y a du pour et du contre aux deux.
 
-LoRaWAN requiert ceci dit plus de travail sur le traitement des données – une fois les paquets arrivés chez TTN, le site concentrateur utilisé par une majorité de sustèmes, les récupérer peut demander un travail d'Hercule. Il y a pas mal d'options, y compris de redirection vers des services "cloud", ainsi que des webhooks vers un site web perso, ou un autre aggrégateur, ou encore un broker MQTT (TTN en fournit un : c'est souvent la solution la plus simple). Plein de choix, mais faut pouvoir assurer derrière.
+LoRaWAN requiert ceci dit plus de travail sur le traitement des données – une fois les paquets arrivés chez TTN, le site concentrateur utilisé par une majorité de systèmes, les récupérer peut demander un travail d'Hercule. Il y a pas mal d'options, y compris de redirection vers des services "cloud", ainsi que des webhooks vers un site web perso, ou un autre aggrégateur, ou encore un broker MQTT (TTN en fournit un : c'est souvent la solution la plus simple). Plein de choix, mais faut pouvoir assurer derrière.
 
-L'avantage clair de LoRa dans ce cas est que les données ne font pas le tour de la terre pour arriver à destination. Elles ne quittent jamais l'appareil qui les a reçues, sauf si le traitement le demande. J'ai mon mini jardin sur le toit, un capteur sol en LoRaWAN, les données font capteur --> ma gateway --> eu1 TTN --> mon serveur ici. Round trip HK-Europe. Un autre capteur est en LoRa : capteur --> ordinateur, point barre.
+L’avantage clair de LoRa dans ce cas est que les données ne font pas le tour de la terre pour arriver à destination. Elles ne quittent jamais l’appareil qui les a reçues, sauf si le traitement le demande. J’ai mon mini jardin sur le toit, un capteur sol en LoRaWAN, les données font capteur → ma gateway → eu1 TTN → mon serveur ici. Round trip HK-Europe. Un autre capteur est en LoRa : capteur → carte RAK811 → ordinateur, point barre.
+Mais une fois les données arrivées, le traitement est plus ou moins le même : est-ce que je fais ma petite sauce moi-même (Python → SQLite → CSV/Autre format text → HTML/CSS/JS), ou est-ce que je passe par Node Red, InfluxDB, Grafananana ? (Dans mon cas la réponse est toujours ma propre sauce mais vous n'êtes pas obligés d'être des abrutis comme moi).
 
-De plus, la liberté de réglages de LoRa permet d'atteindre des performances souvent meilleures que LoRaWAN : j'ai déjà mentionné l'impossibilité d'utiliser SF11 et SF12 en LoRaWAN aux Etats-Unis, alors que ces réglages apportent des performances supérieures, mais aussi la possibilité de réduire la bande passante en dessous de 125 KHz. Evidemment, ces réglages la vitesse de transmission, et un petit paquet d'une dizaine d'octets peut facilement prendre 2 à 3 secondes. Voir [LoRa Calc](https://kongduino.github.io/Lora-Calculations/) pour tester.
+Enfin, la liberté (technique)  de réglages de LoRa permet d'atteindre des performances souvent meilleures que LoRaWAN : j'ai déjà mentionné l'impossibilité d'utiliser SF11 et SF12 en LoRaWAN aux Etats-Unis, alors que ces réglages apportent des performances supérieures, mais aussi la possibilité de réduire la bande passante en dessous de 125 KHz. Evidemment, ces réglages influencent la vitesse de transmission, et un petit paquet d'une dizaine d'octets peut facilement prendre 2 à 3 secondes. Voir [LoRa Calc](https://kongduino.github.io/Lora-Calculations/) pour tester.
+
+![Exemple](Exemple.png)
 
